@@ -1,6 +1,7 @@
 # JavaScript Object-Oriented Exercises
 This project contains three JavaScript exercises designed to practice object creation, methods, nested loops, array methods (filter, map, forEach, reduce, some), and string methods (toLowerCase, includes, slice, join, charAt, toUpperCase). Each exercise involves building a small system to manage data, with starter code and tasks provided.
-Exercises
+
+# Exercises
 
 ## Recipe Book Manager (recipeBook.js)
 
