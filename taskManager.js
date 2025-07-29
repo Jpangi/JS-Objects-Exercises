@@ -49,8 +49,25 @@ taskManager.tasks.push({
 //    - Use 'reduce' to count completed/pending and 'map' with 'join' to list descriptions.
 //    - Test: console.log(taskManager.getTaskReport());
 
-// Challenge Extension:
-// - Add a method markTaskComplete(description) that finds a task by description (case-insensitive), sets status.completed to true, and updates the date.
-// - Test: taskManager.markTaskComplete("finish project"); console.log(taskManager.getTaskReport());
+// Challenge Problems:
+// 5. getSortedPendingTasks()
+//    - Returns an array of pending task descriptions, sorted by due date (ascending) then priority (high to low).
+//    - Use 'filter' for pending tasks, 'sort' with comparators on status.date (parse with new Date()) and priority.
+//    - Test: console.log(taskManager.getSortedPendingTasks()); // E.g., ["Call client", "Finish project"]
+
+// 6. tagStats()
+//    - Returns an object counting tag usage by completed/pending (e.g., { work: { completed: 0, pending: 2 }, urgent: { completed: 1, pending: 1 } }).
+//    - Use nested loops (outer over tasks, inner over tags) with 'reduce' to tally counts.
+//    - Test: console.log(taskManager.tagStats());
+
+// 7. bulkMarkComplete(tag)
+//    - Marks all tasks with a given tag (case-insensitive) as completed, updating status.date to current date (use new Date().toISOString().split('T')[0]).
+//    - Logs number of tasks updated.
+//    - Test: taskManager.bulkMarkComplete("urgent"); console.log(taskManager.getTaskReport());
+
+// Original Challenge Extension:
+// 8. markTaskComplete(description)
+//    - Finds a task by description (case-insensitive), sets status.completed to true, and updates date.
+//    - Test: taskManager.markTaskComplete("finish project"); console.log(taskManager.getTaskReport());
 
 // Run tests in a browser console, Node.js, or JSFiddle to verify functionality.

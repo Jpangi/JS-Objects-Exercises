@@ -51,8 +51,27 @@ recipeBook.recipes.push({
 //    - Use 'filter' to find matches, 'map' to enhance, and a nested 'for' loop to count ingredients.
 //    - Test: console.log(recipeBook.getRecipesByDifficulty("Easy"));
 
-// Challenge Extension:
-// - Add a method generateShoppingList(recipeNames) that takes an array of recipe names, collects all unique ingredients using a nested loop and Set, and returns them as a comma-separated string (use 'join').
-// - Test: console.log(recipeBook.generateShoppingList(["Chocolate Cake", "Pancakes"]));
+// Challenge Problems:
+// 5. sortRecipes()
+//    - Returns an object with keys "Easy", "Medium", "Hard", each containing an array of recipe names sorted by ingredient count (ascending).
+//    - Use 'reduce' to group by difficulty and 'sort' with a comparator for ingredient count.
+//    - Count ingredients with a loop for each recipe.
+//    - Test: console.log(recipeBook.sortRecipes()); // E.g., { Easy: ["Pancakes", "Vegetable Stir-Fry"], Medium: ["Chocolate Cake"], Hard: [] }
+
+// 6. deleteRecipe(name)
+//    - Takes a recipe name (string) and removes it from the recipes array (case-insensitive).
+//    - Use 'findIndex' with 'toLowerCase' to locate, then 'splice' to remove.
+//    - Logs "Recipe deleted" or "Recipe not found".
+//    - Test: recipeBook.deleteRecipe("chocolate cake"); console.log(recipeBook.recipes);
+
+// 7. averageStepsByDifficulty()
+//    - Returns an object with average instructions (steps) per difficulty level (e.g., { Easy: 4.5, Medium: 4, Hard: 0 }).
+//    - Use 'reduce' to group by difficulty, count recipes, and sum instructions.length.
+//    - Handle empty categories with zero averages.
+//    - Test: console.log(recipeBook.averageStepsByDifficulty());
+
+// 8. generateShoppingList(recipeNames)
+//    - Takes an array of recipe names, collects all unique ingredients using a nested loop and Set, and returns them as a comma-separated string (use 'join').
+//    - Test: console.log(recipeBook.generateShoppingList(["Chocolate Cake", "Pancakes"]));
 
 // Run tests in a browser console, Node.js, or JSFiddle to verify functionality.

@@ -49,8 +49,25 @@ libraryCatalog.books.push({
 //    - Use 'map' to format each book and 'reduce' to combine with commas.
 //    - Test: console.log(libraryCatalog.getShortCatalog());
 
-// Challenge Extension:
-// - Add a method filterByPageCount(minPages, maxPages) that filters books by page count and returns a formatted string (e.g., "2 books found with pages between 300 and 400: [titles]").
-// - Test: console.log(libraryCatalog.filterByPageCount(300, 400));
+// Challenge Problems:
+// 5. getRecentBooks(minYear)
+//    - Takes a minimum year (number) and returns an array of book titles published after that year, sorted by pages (descending).
+//    - Use 'filter' on books for year and 'sort' for pages, accessing nested details.year and details.pages.
+//    - Test: console.log(libraryCatalog.getRecentBooks(1950)); // E.g., ["Dune"] if added
+
+// 6. genreFrequency()
+//    - Returns an object counting occurrences of each genre (e.g., { Fiction: 2, Fantasy: 1 }).
+//    - Use nested loops: outer over books, inner over genres, with 'reduce' to tally counts.
+//    - Test: console.log(libraryCatalog.genreFrequency());
+
+// 7. updateBookDetails(title, newPages, newYear)
+//    - Updates a book's pages or year by title (case-insensitive).
+//    - Use 'find' with 'toLowerCase' to locate, update details if found, and log success or failure.
+//    - Test: libraryCatalog.updateBookDetails("1984", 350, null); console.log(libraryCatalog.books);
+
+
+// 8. filterByPageCount(minPages, maxPages)
+//    - Filters books by page count and returns a formatted string (e.g., "2 books found with pages between 300 and 400: [titles]").
+//    - Test: console.log(libraryCatalog.filterByPageCount(300, 400));
 
 // Run tests in a browser console, Node.js, or JSFiddle to verify functionality.
