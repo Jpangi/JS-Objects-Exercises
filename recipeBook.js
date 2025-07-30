@@ -2,14 +2,67 @@
 // Initial object structure
 const recipeBook = {
   recipes: [],  // Array to store recipe objects
-  // Methods will be added here
-};
+  addRecipe: function(name, ingredients, instructions, difficulty){
+    if(typeof name !== 'string' || name.trim() === ''){
+      console.log('Enter valid recipe name');
+      return;
+    }
+    if(!Array.isArray(ingredients) || !Array.isArray(instructions)){
+      console.log('ingredients and instructions should be arrays');
+      return;
+    }
+    const newRecipe = {
+      name: name,
+      ingredients: ingredients,
+      instructions: instructions,
+      difficulty: difficulty
+    };
+    this.recipes.push(newRecipe);
+    console.log(newRecipe);
+  },
+
+searchByIngredient: (ingredient) => {
+    const ingredientLower = ingredient.toLowerCase();
+    const matchingRecipes = recipeBook.recipes.filter(recipe =>
+      recipe.ingredients.some(item =>
+        item.toLowerCase().includes(ingredientLower)
+      )
+    );
+    const recipeNames = matchingRecipes.map(recipe => recipe.name);
+    return recipeNames;
+  },
+
+listAllInstructions: function() {
+  const index = 0;
+  for (let i = 0; i < recipeBook.recipes.length; i++) {
+    console.log(`Recipe ${i+1}: ${recipeBook.recipes[i].name}\n`);
+    const instructions = recipeBook.recipes[i].instructions;
+    for (let j = 0; j < instructions.length; j++) {
+      let upper = instructions[j].charAt(index).toUpperCase();
+      let newInstructions = upper + instructions[j].slice(1)
+      console.log(`${j + 1}: ${newInstructions}.\n`);
+    }
+  }
+},
+
+getRecipesByDifficulty: function(difficulty){
+
+
+
+}
+
+}
+
+
+
+
+
 
 // Sample recipes for testing
 recipeBook.recipes.push({
   name: "Chocolate Cake",
   ingredients: ["flour", "sugar", "cocoa", "eggs", "butter"],
-  instructions: ["Preheat oven to 350°F", "Mix dry ingredients", "Add wet ingredients and stir", "Bake for 30 minutes"],
+  instructions: ["preheat oven to 350°F", "mix dry ingredients", "Add wet ingredients and stir", "Bake for 30 minutes"],
   difficulty: "Medium"
 });
 
@@ -19,6 +72,9 @@ recipeBook.recipes.push({
   instructions: ["Heat oil in pan", "Add vegetables and stir", "Add soy sauce and garlic", "Cook for 10 minutes"],
   difficulty: "Easy"
 });
+
+recipeBook.addRecipe("Pancakes", ["flour", "milk", "eggs"], ["Mix batter", "Cook on griddle"], "Easy");
+recipeBook.listAllInstructions();
 
 // Instructions/Tasks:
 // Build a Recipe Book Manager to store and manage recipes. Each recipe is an object with name (string), ingredients (array of strings), instructions (array of strings), and difficulty (string: "Easy", "Medium", "Hard").
@@ -31,11 +87,20 @@ recipeBook.recipes.push({
 //    - Logs confirmation (e.g., "Pancakes added to the recipe book!").
 //    - Test: recipeBook.addRecipe("Pancakes", ["flour", "milk", "eggs"], ["Mix batter", "Cook on griddle"], "Easy");
 
+
+
 // 2. searchByIngredient(ingredient)
 //    - Takes an ingredient (string) and returns an array of recipe names that include it (case-insensitive).
 //    - Use array method 'filter' on recipes and 'some' on ingredients array.
 //    - Use string methods 'toLowerCase' and 'includes' for matching.
 //    - Test: console.log(recipeBook.searchByIngredient("eggs")); // Should return ["Chocolate Cake", "Pancakes"]
+
+
+
+
+// console.log(recipeBook.recipes[0].ingredients);
+
+
 
 // 3. listAllInstructions()
 //    - Loops through all recipes (outer loop) and their instructions (inner loop).
@@ -44,12 +109,24 @@ recipeBook.recipes.push({
 //    - Use 'forEach' for recipes and a 'for' loop for instructions.
 //    - Test: recipeBook.listAllInstructions();
 
+
+
+
+
 // 4. getRecipesByDifficulty(difficulty)
 //    - Takes a difficulty string (e.g., "Easy") and returns an array of matching recipe objects.
 //    - Enhances each recipe with 'totalSteps' (instructions.length) and 'totalIngredients' (count via nested loop).
 //    - Includes a 'summary' property (e.g., "This Easy recipe has 5 ingredients.").
 //    - Use 'filter' to find matches, 'map' to enhance, and a nested 'for' loop to count ingredients.
 //    - Test: console.log(recipeBook.getRecipesByDifficulty("Easy"));
+
+
+
+
+
+
+
+
 
 // Challenge Problems:
 // 5. sortRecipes()
