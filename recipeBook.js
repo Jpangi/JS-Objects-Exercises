@@ -45,16 +45,25 @@ listAllInstructions: function() {
   }
 },
 
-getRecipesByDifficulty: function(difficulty){
+getRecipesByDifficulty(difficulty){
+  const lowerDiff = difficulty.toLowerCase();
+   const matchingRecipes = this.recipes.filter(recipe => {recipe.difficulty.toLowerCase() === lowerDiff
+})
+  return  matchingRecipes.map(recipe => {
+    let totalIngredients = 0;
+    for(let j = 0; j < recipe.ingredients.length; j++){
+      totalIngredients++
+    }
+    return {
+      ...recipe,
+      totalSteps: recipe.instructions.length,
+      totalIngredients: totalIngredients,
+      summary: `This ${recipe.difficulty} recipe has ${totalIngredients}`
+    }
 
-
+  })}
 
 }
-
-}
-
-
-
 
 
 
@@ -75,7 +84,7 @@ recipeBook.recipes.push({
 
 recipeBook.addRecipe("Pancakes", ["flour", "milk", "eggs"], ["Mix batter", "Cook on griddle"], "Easy");
 recipeBook.listAllInstructions();
-
+console.log(recipeBook.getRecipesByDifficulty('easy')); 
 // Instructions/Tasks:
 // Build a Recipe Book Manager to store and manage recipes. Each recipe is an object with name (string), ingredients (array of strings), instructions (array of strings), and difficulty (string: "Easy", "Medium", "Hard").
 // Implement the following methods:
